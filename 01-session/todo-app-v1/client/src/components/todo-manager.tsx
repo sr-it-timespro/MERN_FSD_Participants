@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import ITodoItem from "../models/todo-model";
 import {getAllTODOItems} from "../services/todo-service"
+import {TodoItems} from "./todo-items"
 
 const TODOManager = () => {
 
@@ -21,7 +22,9 @@ const TODOManager = () => {
 
   return (
     <div>
-      TODO Manager Component
+      
+      <TodoItems todoItems={todoItems}></TodoItems>
+
     </div>
   )
 }
