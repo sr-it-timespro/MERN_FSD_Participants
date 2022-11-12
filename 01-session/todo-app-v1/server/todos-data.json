@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Complete the React JS Book",
+      "description": "To complete the book in the next 3 weeks",
+      "createdDate": "12-Nov-2022"
+    },
+    {
+      "id": 2,
+      "title": "Plan a trip to Paris",
+      "description": "Trip pending for a long time",
+      "createdDate": "11-Nov-2022"
+    },
+    {
+      "id": 3,
+      "title": "Join the Book Club",
+      "description": "Try to join the club in the next few days",
+      "createdDate": "9-Nov-2022"
+    }        
+  ]
+}
