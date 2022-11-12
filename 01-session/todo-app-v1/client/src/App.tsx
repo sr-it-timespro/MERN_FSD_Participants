@@ -1,11 +1,10 @@
 import React from 'react';
 import {TODOManager} from "./components/todo-manager"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
-      TODO Manager Application
-
       <TODOManager></TODOManager>
     </div>
   );

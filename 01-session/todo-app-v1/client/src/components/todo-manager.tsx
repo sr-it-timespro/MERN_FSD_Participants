@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ITodoItem from "../models/todo-model";
 import {getAllTODOItems} from "../services/todo-service"
 import {TodoItems} from "./todo-items"
+import {Container} from "react-bootstrap";
 
 const TODOManager = () => {
 
@@ -21,11 +22,15 @@ const TODOManager = () => {
   }, [])
 
   return (
-    <div>
+    <Container>
+
+      <h2>
+        TODO Manager Application
+      </h2>
       
       <TodoItems todoItems={todoItems}></TodoItems>
 
-    </div>
+    </Container>
   )
 }
 
