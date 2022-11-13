@@ -1,10 +1,16 @@
 
 import { Button, Modal, Form } from "react-bootstrap"
 import { useState, useRef, FormEvent } from "react";
-import { ITodoCreateItem } from "../models/todo-model";
+import ITodoItem, { ITodoCreateItem } from "../models/todo-model";
 import {postNewTodoItem} from "../services/todo-service";
 
-const TodoCreator = () => {
+type TodoCreatorModel = {
+
+  // a : string,
+  refreshParent : (newlyCreatedTodoItem : ITodoItem) => void;
+}
+
+const TodoCreator = (todoCreatorModel : TodoCreatorModel) => {
 
   const [show, setShow] = useState(false);
 
@@ -25,8 +31,10 @@ const TodoCreator = () => {
     }
 
     console.log(todoCreateItem);
-    const response = await postNewTodoItem(todoCreateItem);
-    console.log("Response is " + JSON.stringify(response));
+    const newlyCreatedTodoItem = await postNewTodoItem(todoCreateItem);
+    console.log("Response is " + JSON.stringify(newlyCreatedTodoItem));
+
+    todoCreatorModel.refreshParent(newlyCreatedTodoItem);
 
     handleClose();
   }

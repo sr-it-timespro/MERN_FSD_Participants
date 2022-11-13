@@ -12,6 +12,21 @@ const TODOManager = () => {
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState<boolean>(true)
 
+  const refreshParent = (newlyCreatedTodoItem : ITodoItem) => {
+
+    //  todoItems -> 10
+    // newlyCreatedTodoItem -> 11
+
+    // Existing todoItems -> todoItems
+    // resultArray [11] -> todoItems, newlyCreatedTodoItem
+    // setTodoItems(resultArray)
+
+    setTodoItems([
+      ...todoItems,
+      newlyCreatedTodoItem
+    ])
+
+  }
 
   useEffect(() => {
 
@@ -42,7 +57,7 @@ const TODOManager = () => {
 
       <h2>
         TODO Manager Application
-        <TodoCreator></TodoCreator>
+        <TodoCreator refreshParent={refreshParent}></TodoCreator>
       </h2>
       
       {
