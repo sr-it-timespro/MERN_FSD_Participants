@@ -1,5 +1,5 @@
 
-import { Button, Modal } from "react-bootstrap"
+import { Button, Modal, Form } from "react-bootstrap"
 import { useState } from "react";
 
 const TodoCreator = () => {
@@ -16,22 +16,37 @@ const TodoCreator = () => {
       <Button variant="primary" className="float-end" onClick={handleShow}>Add New Todo</Button>
 
       <Modal show={show} onHide={handleClose}>
-        
+
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>New Todo Item</Modal.Title>
         </Modal.Header>
-        
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      
+
+        <Modal.Body>
+
+          <Form>
+
+            <Form.Group className="mb-3" controlId="todoTitle">
+              <Form.Label>Todo Title</Form.Label>
+              <Form.Control type="text" placeholder="Enter Todo Title" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="todoDescription">
+              <Form.Label>Todo Description</Form.Label>
+              <Form.Control type="text" placeholder="Enter Todo Description" />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Add New Todo
+            </Button>
+          
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+
+          </Form>
+
+        </Modal.Body>
+
       </Modal>
 
     </>
