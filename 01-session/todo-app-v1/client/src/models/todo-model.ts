@@ -8,4 +8,7 @@ interface ITodoItem{
 
 }
 
+type ITodoCreateItem = Omit<ITodoItem, "id">;
+export type {ITodoCreateItem};
+
 export default ITodoItem;

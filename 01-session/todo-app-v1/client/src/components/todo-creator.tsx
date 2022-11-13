@@ -1,6 +1,6 @@
 
 import { Button, Modal, Form } from "react-bootstrap"
-import { useState } from "react";
+import { useState, useRef, FormEvent } from "react";
 
 const TodoCreator = () => {
 
@@ -8,6 +8,19 @@ const TodoCreator = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const titleRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLInputElement>(null);
+
+  const handleAddTodo = (event : FormEvent<HTMLFormElement>) => {
+
+    event.preventDefault();
+
+    console.log("Title value -> " + titleRef?.current?.value);
+    console.log("Description value -> " + descriptionRef?.current?.value);
+
+    handleClose();
+  }
 
   return (
 
@@ -23,16 +36,16 @@ const TodoCreator = () => {
 
         <Modal.Body>
 
-          <Form>
+          <Form onSubmit={handleAddTodo}>
 
             <Form.Group className="mb-3" controlId="todoTitle">
               <Form.Label>Todo Title</Form.Label>
-              <Form.Control type="text" placeholder="Enter Todo Title" />
+              <Form.Control type="text" placeholder="Enter Todo Title" ref={titleRef}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="todoDescription">
               <Form.Label>Todo Description</Form.Label>
-              <Form.Control type="text" placeholder="Enter Todo Description" />
+              <Form.Control type="text" placeholder="Enter Todo Description" ref={descriptionRef}/>
             </Form.Group>
 
             <Button variant="primary" type="submit">
