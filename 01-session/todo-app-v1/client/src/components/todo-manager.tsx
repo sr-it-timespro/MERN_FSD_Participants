@@ -4,6 +4,7 @@ import ITodoItem from "../models/todo-model";
 import {getAllTODOItems} from "../services/todo-service"
 import {TodoItems} from "./todo-items"
 import {Container, Alert, Spinner} from "react-bootstrap";
+import { TodoCreator } from "./todo-creator";
 
 const TODOManager = () => {
 
@@ -41,6 +42,7 @@ const TODOManager = () => {
 
       <h2>
         TODO Manager Application
+        <TodoCreator></TodoCreator>
       </h2>
       
       {
