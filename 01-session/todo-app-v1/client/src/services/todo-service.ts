@@ -1,6 +1,6 @@
 
 import axios from "axios"
-import ITodoItem from "../models/todo-model";
+import ITodoItem, { ITodoCreateItem } from "../models/todo-model";
 
 
 const getAllTODOItems = async () => {
@@ -10,4 +10,16 @@ const getAllTODOItems = async () => {
 
 }
 
-export {getAllTODOItems};
+
+const postNewTodoItem = async (todoCreateItem : ITodoCreateItem) => {
+
+  const config = {
+    headers: {
+      'Content-Type' : 'application/json'
+    }
+  }
+  const response = await axios.post<ITodoItem>("http://localhost:4000/todos", todoCreateItem, config)
+  return response.data;
+}
+
+export {getAllTODOItems, postNewTodoItem};

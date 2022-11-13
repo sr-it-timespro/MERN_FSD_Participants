@@ -1,6 +1,8 @@
 
 import { Button, Modal, Form } from "react-bootstrap"
 import { useState, useRef, FormEvent } from "react";
+import { ITodoCreateItem } from "../models/todo-model";
+import {postNewTodoItem} from "../services/todo-service";
 
 const TodoCreator = () => {
 
@@ -12,12 +14,19 @@ const TodoCreator = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
 
-  const handleAddTodo = (event : FormEvent<HTMLFormElement>) => {
+  const handleAddTodo = async (event : FormEvent<HTMLFormElement>) => {
 
     event.preventDefault();
 
-    console.log("Title value -> " + titleRef?.current?.value);
-    console.log("Description value -> " + descriptionRef?.current?.value);
+    const todoCreateItem : ITodoCreateItem = {
+      title: titleRef?.current?.value as string,
+      description: descriptionRef?.current?.value as string,
+      createdDate: new Date()
+    }
+
+    console.log(todoCreateItem);
+    const response = await postNewTodoItem(todoCreateItem);
+    console.log("Response is " + JSON.stringify(response));
 
     handleClose();
   }
