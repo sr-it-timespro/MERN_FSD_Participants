@@ -6,6 +6,10 @@ const app = express();
 
 const PORT = config.get("server.port");
 
+const authenticationRouter = require("./authentication/routes");
+
+app.use(authenticationRouter);
+
 app.listen(PORT, () => {
 
   console.log(`Server application started and listening at port ${PORT}`);
