@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+
+// Middle-ware
+app.use(express.json());
+
 const PORT = config.get("server.port");
 
 const authenticationRouter = require("./authentication/routes");
