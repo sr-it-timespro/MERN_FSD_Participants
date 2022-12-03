@@ -1,5 +1,6 @@
+const User = require("./models");
 
-const signupHandler = (req, res) => {
+const signupHandler = async (req, res) => {
 
   console.log(req.body);
 
@@ -8,11 +9,25 @@ const signupHandler = (req, res) => {
 
   console.log(`Username is ${username} and password is ${password}`);
 
-  res.status(200).json({
-    message: "Sign-up process implementation"
-  })
-}
+  try{
 
+    const newUser = await User.create({
+      username, password
+    });
+    console.log(`New user is ${newUser}`);
+
+    res.status(200).json({
+      user: newUser
+    })
+  
+  }catch(error){
+    console.log(error);
+    res.status(400).json({
+      error: error.message
+    })
+  }
+
+}
 
 const signinHandler = (req, res) => {
 
