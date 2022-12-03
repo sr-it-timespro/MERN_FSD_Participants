@@ -1,0 +1,7 @@
+{
+  "server": {
+    "port" : 4000
+  },
+
+  "MONGO_DB_URI" : "mongodb+srv://todouser:password_123@cluster0.swbq7u6.mongodb.net/todo-manager-v1"
+}
