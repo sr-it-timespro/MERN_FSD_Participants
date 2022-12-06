@@ -29,11 +29,33 @@ const signupHandler = async (req, res) => {
 
 }
 
-const signinHandler = (req, res) => {
+const signinHandler = async (req, res) => {
 
-  res.status(200).json({
-    message: "Sign-in process implementation"
-  })
+  console.log(req.body);
+
+  const username = req.body.username;
+  const password = req.body.password;
+
+  console.log(`Username is ${username} and password is ${password}`);
+
+  try{
+
+    const existingUser = await User.findUser(
+      username, password);
+
+    console.log(`Existing user is ${existingUser}`);
+
+    res.status(200).json({
+      user: existingUser
+    })
+  
+  }catch(error){
+    console.log(error);
+    res.status(400).json({
+      error: error.message
+    })
+  }
+
 }
 
 
