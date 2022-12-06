@@ -19,6 +19,11 @@ app.use(authenticationRouter);
 const cookiesRouter = require("./demo/cookies");
 app.use(cookiesRouter);
 
+const customerRouter = require("./customer/routes");
+app.use(customerRouter);
+
+// app.get("*", )
+
 app.listen(PORT, () => {
 
   console.log(`Server application started and listening at port ${PORT}`);
