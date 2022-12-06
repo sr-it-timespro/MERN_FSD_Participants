@@ -1,18 +1,23 @@
 const express = require("express");
 const config = require("config");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+
 
 const app = express();
 
-
 // Middle-ware
 app.use(express.json());
+app.use(express.static("public"));
+app.use(cookieParser());
 
 const PORT = config.get("server.port");
 
 const authenticationRouter = require("./authentication/routes");
-
 app.use(authenticationRouter);
+
+const cookiesRouter = require("./demo/cookies");
+app.use(cookiesRouter);
 
 app.listen(PORT, () => {
 

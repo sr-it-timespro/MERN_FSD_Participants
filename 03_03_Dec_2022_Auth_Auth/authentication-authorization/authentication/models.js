@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
 
@@ -15,10 +16,19 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', async function(next) {
+
+  const salt = await bcrypt.genSalt();
+
+  const plainTextPassword = this.password;
+  const hashedPassword = await bcrypt.hash(plainTextPassword, salt);
+
+  this.password = hashedPassword;
+
+  console.log("Hashed password is " + hashedPassword);
 
   console.log('Method/Hooked called before save...')
-  console.log("Meaning of this " + this);
+  // console.log("Meaning of this " + this);
 
   next();
 })
@@ -26,8 +36,8 @@ userSchema.pre('save', function(next) {
 userSchema.post('save', function(userDocument, next) {
 
   console.log('Method/Hook called after the save operation...')
-  console.log("Meaning of this " + this);
-  console.log("USer document " + userDocument);
+  // console.log("Meaning of this " + this);
+  // console.log("USer document " + userDocument);
 
   next();
 })

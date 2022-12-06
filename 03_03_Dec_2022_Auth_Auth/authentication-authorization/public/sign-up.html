@@ -1,0 +1,84 @@
+
+<style>
+
+  .sign-up{
+    width: 350px;
+    padding: 80px;
+    background-color: lightblue;
+    border-radius: 10px;    
+  }
+</style>
+
+<div class="sign-up">
+
+
+<form>
+
+    <label>Username : </label>
+    <input type="text" name="username">  <br><br>
+
+    <label>Password : </label>
+    <input type="password" name="password">  <br><br>
+
+    <div class="errorMessages">
+    </div>
+    <br><br>
+
+    <input type="submit" value="Sign up "/>
+
+</form>
+
+</div>
+
+<script>
+
+const form = document.querySelector("form");
+const errorMessages = document.querySelector(".errorMessages");
+
+
+form.addEventListener("submit", async (event) => {
+
+  event.preventDefault();
+
+  const username = form.username.value;
+  const password = form.password.value;
+
+  console.log(`Username is ${username} and password is ${password}`);
+
+  try{
+
+      const response = await fetch("/sign-up", {
+        method: 'POST',
+        body: JSON.stringify({username, password}),
+        headers: {
+          'Content-Type' : 'application/json'
+        }
+
+      });
+
+      const data = await response.json();
+      console.log(`Data is ${data}`);
+
+
+      if (response.status == 400){
+
+        const eMessage = JSON.stringify(data);
+        console.log('Error Messages -> ' + eMessage);
+
+        errorMessages.textContent = eMessage;
+
+      }else {
+        console.log('User is created');
+      }
+
+
+  }catch (error){
+
+    const eMessage = JSON.stringify(error);
+    console.log('Error Messages ->' + eMessage);
+
+    errorMessages.textContent = eMessage;
+  }
+})
+
+</script>
