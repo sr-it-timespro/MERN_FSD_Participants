@@ -34,4 +34,35 @@ const customers = (req, res) => {
 
 }
 
-module.exports = {customers};
+
+const projects = (req, res) => {
+
+  const projectsList = [
+    {
+      "id" : "1",
+      "name" : "Facebook Project"
+    },
+
+    {
+      "id" : "2",
+      "name" : "Gmail Application"
+    }
+  ]
+
+  res.status(200).json({
+    projects: projectsList
+  })
+
+}
+
+
+const public_data = (req, res) => {
+
+  res.status(200).json({
+    message1:  'This is an example for public data',
+    message2: 'To access this data, there is no need to undergo authentication process'
+  });
+
+}
+
+module.exports = {customers, projects, public_data};

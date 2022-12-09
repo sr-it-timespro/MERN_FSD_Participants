@@ -40,6 +40,8 @@ form.addEventListener("submit", async (event) => {
 
   event.preventDefault();
 
+  errorMessages.textContent = '';
+
   const username = form.username.value;
   const password = form.password.value;
 
@@ -68,7 +70,8 @@ form.addEventListener("submit", async (event) => {
         errorMessages.textContent = eMessage;
 
       }else {
-        console.log('User is created');
+        console.log('User is created -> -> ');
+        location.assign("/customers");
       }
 
 
