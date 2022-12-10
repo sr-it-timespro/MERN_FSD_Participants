@@ -1,0 +1,70 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Complete the React JS Book",
+      "description": "To complete the book in the next 3 weeks",
+      "createdDate": "12-Nov-2022"
+    },
+    {
+      "id": 2,
+      "title": "Plan a trip to Paris",
+      "description": "Trip pending for a long time",
+      "createdDate": "11-Nov-2022"
+    },
+    {
+      "id": 3,
+      "title": "Join the Book Club",
+      "description": "Try to join the club in the next few days",
+      "createdDate": "9-Nov-2022"
+    },
+    {
+      "id": 4,
+      "title": "Task Title 4",
+      "description": "Task Description 4",
+      "createdDate": "9-Nov-2022"
+    },
+    {
+      "id": 5,
+      "title": "Task Title 5",
+      "description": "Task Description 5",
+      "createdDate": "9-Nov-2022"
+    },
+    {
+      "id": 6,
+      "title": "Task Title 6",
+      "description": "Task Description 6",
+      "createdDate": "9-Nov-2022"
+    },
+    {
+      "title": "Go to a movie",
+      "description": "Movie...",
+      "createdDate": "2022-11-13T10:54:18.020Z",
+      "id": 7
+    },
+    {
+      "title": "Watch a movie",
+      "description": "movie",
+      "createdDate": "2022-11-13T10:55:30.816Z",
+      "id": 8
+    },
+    {
+      "title": "Movie",
+      "description": "Movie Description",
+      "createdDate": "2022-11-13T10:56:21.314Z",
+      "id": 9
+    },
+    {
+      "title": "Task 9",
+      "description": "Description 9",
+      "createdDate": "2022-11-13T11:01:48.162Z",
+      "id": 10
+    },
+    {
+      "title": "Task 10",
+      "description": "Task Desc 10",
+      "createdDate": "2022-11-13T11:12:24.714Z",
+      "id": 11
+    }
+  ]
+}
